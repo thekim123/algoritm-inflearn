@@ -3,6 +3,7 @@ package inflearn.ch3;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
@@ -13,21 +14,34 @@ public class No2 {
 
 		int n = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-		boolean[] arr1 = new boolean[1000000001];
-		
+		int[] arr1 = new int[n];
+
 		for (int i = 0; i < n; i++) {
 			int number = Integer.parseInt(st.nextToken());
-			arr1[number] = true;
+			arr1[i] = number;
 		}
+		Arrays.sort(arr1);
 
 		int m = Integer.parseInt(br.readLine());
+		int[] arr2 = new int[m];
 		StringTokenizer st1 = new StringTokenizer(br.readLine(), " ");
-		ArrayList<Integer> result = new ArrayList<Integer>();
-		
-		for (int j = 0; j < m; j++) {
+		for (int i = 0; i < n; i++) {
 			int number = Integer.parseInt(st1.nextToken());
-			if (arr1[number]) {
-				result.add(number);
+			arr2[i] = number;
+		}
+		Arrays.sort(arr2);
+
+		int temp1 = 0;
+		int temp2 = 0;
+
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		for (int j = temp1; j < arr1.length; j++) {
+			for (int i = temp2; i < arr2.length; i++) {
+				if (arr1[j] == arr2[i]) {
+					result.add(arr1[j]);
+					temp1 = j;
+					temp2 = i;
+				}
 			}
 		}
 
