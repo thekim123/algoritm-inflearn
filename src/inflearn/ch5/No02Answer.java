@@ -17,6 +17,7 @@ public class No02Answer {
 			} else {
 				stack.push(c);
 			}
+			System.out.println(stack);
 		}
 
 		stack.forEach(s -> System.out.print(s));
