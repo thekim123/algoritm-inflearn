@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// ÀÌºÐÅ½»öÀ¸·Î Ç®¾î¾ß µÈ´Ù´Â°É ¾Ë°í ½ÃÀÛÇÑ Ç®ÀÌ - ¸øÇ° ¤»
+// ï¿½Ìºï¿½Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ ï¿½È´Ù´Â°ï¿½ ï¿½Ë°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ - ï¿½ï¿½Ç° ï¿½ï¿½
 public class No09Second {
 
 	public static void main(String[] args) throws Exception {
@@ -30,8 +30,8 @@ public class No09Second {
 			int temp = rt;
 			int count = m;
 			for (int i = 0; i < arr.length; i++) {
-				System.out.println("lt : " + lt);
-				System.out.println("rt : " + rt);
+				System.out.println("on : " + lt);
+				System.out.println("off : " + rt);
 				System.out.println("mid : " + mid);
 				System.out.println("arr[i] : " + arr[i]);
 				if (i == arr.length - 1) {
