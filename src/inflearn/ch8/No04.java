@@ -19,7 +19,6 @@ public class No04 {
                 arr[lev] = i;
                 DFS(lev + 1);
             }
-
         }
     }
 
