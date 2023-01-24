@@ -4,34 +4,42 @@ import java.util.Scanner;
 
 public class No06 {
 
-    static int sum;
-    static int[][] combination;
+    static int[] answer;
 
-    static void DFS(int n, int r) {
-        if (combination[n][r] != 0) {
-            sum += combination[n][r];
+    static void DFS(int[] arr, int[] check, int m, int lev) {
+        if (m == lev) {
+            for (int i = 0; i < answer.length; i++) {
+                System.out.printf(answer[i]+" ");
+            }
+            System.out.println();
             return;
         }
 
-        if (r == 0 || r == n) {
-            sum += 1;
-            combination[n][r] = 1;
-            return;
-        } else {
-            DFS(n - 1, r - 1);
-            DFS(n - 1, r);
+        for (int i = 0; i < arr.length; i++) {
+            answer[lev] = arr[i];
+            if (check[i]==1){
+                continue;
+            }
+            check[i] = 1;
+            DFS(arr, check, m, lev + 1);
+            check[i] = 0;
         }
+
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
-        int r = sc.nextInt();
-        sum = 0;
+        int m = sc.nextInt();
+        int[] check = new int[n];
 
-        combination = new int[n + 1][n + 1];
+        int[] arr = new int[n];
+        answer = new int[m];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
 
-        DFS(n, r);
-        System.out.println(sum);
+        DFS(arr, check, m, 0);
     }
 }
